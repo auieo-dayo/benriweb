@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js"></script>
+</head>
+<body>
+    <main>
+    <div class="button">
+        <p>分:<span id="setmin">0</span></p>
+        <input type="number" id="inpmin">
+        <button onclick="inp_saibyouga()">確定</button>
+    </div>
+    <div class="button">
+        <p>秒:<span id="setsec">0</span></p>
+        <input type="number" id="inpsec">
+        <button onclick="inp_saibyouga()">確定</button>
+    </div>
+    <div>
+        <p>残り時間:<span id="nokori">開始してください</span></p>
+        <button onclick="startstop()">開始・停止</button>
+    </div>
+    <audio src="timer.mp3" preload="auto" loop id="timer_sound"></audio>
+</main>
+    <footer>
+        <p>効果音使用:OtoLogic様</p>
+    </footer>
+</body>
+</html>

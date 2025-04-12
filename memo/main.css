@@ -1,0 +1,13 @@
+textarea {
+    height: 500px;
+    width: 800px;
+}
+.del {
+    width: 200px;
+    height: 100px;
+    background:red ;
+    transition: .3s;
+}
+.del:hover {
+    background: rgb(168, 0, 0);
+}

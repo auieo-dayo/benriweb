@@ -1,0 +1,30 @@
+main div {
+    border: 2px solid #000;
+    width: 300px;
+    height: 120px;
+    text-align: center;
+    font-family: sans-serif;
+    margin: 5px;
+}
+main {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px;
+}
+ footer {
+    display: block;
+    text-align: center;
+ }
+.button button {
+    width: 100px;
+    height: 40px;
+}
+#setmin {
+font-size:25px;
+}
+#setsec {
+    font-size: 25px;
+}
+#nokori {
+    font-size: 25px;
+}
