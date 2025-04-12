@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello World</h1>
+    <style>
+        h1 {
+            transition: 1.2s;
+            text-align: center;
+            font-size: 100px;
+        }
+        body {
+            background-color: rgb(77, 77, 77);
+        }
+
+    </style>
+    <script>
+        let h1
+        let colors = ["red","blue","yellow","green","purple"]
+        let a = 0
+        window.onload = function() {
+            h1 = document.querySelector("h1")
+            
+        }
+        function ref() {
+            if (a===colors.length-1) {
+                a=0
+            }
+            h1.style.color = colors[a]
+            a++
+            setTimeout(ref,1000)
+        }
+        
+    </script>
+</body>
+</html>
