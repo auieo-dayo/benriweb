@@ -1,0 +1,54 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>redirect</title>
+</head>
+<body>
+    
+    <h1 style="color:red;">リダイレクトの警告</h1>
+    <p>五秒後に自作サイト外の、[<b><span id="url">読み込み中</span></b>]へ転送します</p>
+    <style>
+        body {
+            text-align: center;
+            font-size:large;
+        }
+    </style>
+    <script>
+        let query
+        window.onload = function() {
+            query = URLtoJSON()
+            document.getElementById("url").textContent = query.url
+            setTimeout(redirect,5000)
+        }
+        function redirect() {
+            if (!query.url) {
+                location.replace("about:blank")
+            } else {
+                location.replace(query.url)
+            }
+        }
+            function URLtoJSON() {
+let queryString = location.search
+
+    const params = new URLSearchParams(queryString);
+    const result = {};
+
+    for (const [key, value] of params.entries()) {
+      // 同じキーが複数ある場合は配列にする
+      if (result.hasOwnProperty(key)) {
+        if (Array.isArray(result[key])) {
+          result[key].push(value);
+        } else {
+          result[key] = [result[key], value];
+        }
+      } else {
+        result[key] = value;
+      }
+    }
+
+    return result;
+  }
+    </script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-let mydomain = get3LD(location.href),redirectchkpage="redirect.html?url="
+let mydomain = get3LD(location.href),redirectchkpage="/redirect.html?url="
 console.log(mydomain)
 
     document.addEventListener("DOMContentLoaded",ev=>{
