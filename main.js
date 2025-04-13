@@ -4,15 +4,17 @@ console.log(mydomain)
     document.addEventListener("DOMContentLoaded",ev=>{
       redirectchk()
     })
+    document.querySelectorAll(".openlink").forEach(function(el) {
+      el.addEventListener("click",e =>{openlinkbtn(e)})
+    })
 function redirectchk() {
   document.querySelectorAll("a").forEach(function(el) {
     if (!el.href || get3LD(el.href) === mydomain || get3LD(el.href) === "path") {return}
     el.href = redirectchkpage+el.href
 });
-document.querySelectorAll("button").forEach(function(el) {
+document.querySelectorAll(".openlink").forEach(function(el) {
     if (!el.dataset.url || get3LD(el.href) === mydomain || get3LD(el.dataset.url) === "path") {return}
         el.dataset.url = redirectchkpage+el.dataset.url
-        el.addEventListener("click",e =>{openlinkbtn(e)})
 });
 }
 
