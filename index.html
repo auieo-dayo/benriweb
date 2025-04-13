@@ -4,6 +4,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    body {
+        background-color: rgb(77, 77, 77);
+    }
+    
+    </style>
 <body>
     <h1>Hello World</h1>
     <style>
@@ -12,28 +18,76 @@
             text-align: center;
             font-size: 100px;
         }
-        body {
-            background-color: rgb(77, 77, 77);
+</style>
+<script>
+    let h1
+    let colors = ["red","blue","yellow","green","purple"]
+    let a = 0
+    window.onload = function() {
+        const mode = function(){
+        if (query.mode === "linksmode") {
+            //html
+            document.body.innerHTML = `
+    <h1>Links</h1>
+    <button class="openlink" data-url="https://github.com/auieo-dayo/benriweb">Github</button>
+    <button class="openlink" data-url="/kensaku/">検索</button>
+    <button class="openlink" data-url="/memo/">メモ</button>
+    <button class="openlink" data-url="/nowtime/">今の時間</button>
+    <button class="openlink" data-url="/stopwatch/">ストップウォッチ</button>
+    <button class="openlink" data-url="/timer/">タイマー</button>
+            `
+            //btn
+    document.querySelectorAll(".openlink").forEach(function(el) {
+    el.addEventListener("click",e =>{openlinkbtn(e)})
+    });
+    function openlinkbtn(event) {
+        let element = event.target
+        if (!element.dataset.url) {
+            console.error(`${element}のデータ値にURLが指定されていません`)
+            return;
         }
+        let link = document.createElement("a")
+        link.href = element.dataset.url
+        link.rel = "noopener noreferrer"
+        link.target = "_blank"
+        link.click()
+    }
+        }}
+        h1 = document.querySelector("h1")
+        ref()
+        let query = URLtoJSON()
+        mode()
+    }
+    function URLtoJSON() {
+let queryString = location.search
 
-    </style>
-    <script>
-        let h1
-        let colors = ["red","blue","yellow","green","purple"]
-        let a = 0
-        window.onload = function() {
-            h1 = document.querySelector("h1")
-            ref()
+    const params = new URLSearchParams(queryString);
+    const result = {};
+
+    for (const [key, value] of params.entries()) {
+      // 同じキーが複数ある場合は配列にする
+      if (result.hasOwnProperty(key)) {
+        if (Array.isArray(result[key])) {
+          result[key].push(value);
+        } else {
+          result[key] = [result[key], value];
         }
-        function ref() {
-            if (a===colors.length-1) {
-                a=0
-            }
-            h1.style.color = colors[a]
-            a++
-            setTimeout(ref,1000)
+      } else {
+        result[key] = value;
+      }
+    }
+
+    return result;
+  }
+    function ref() {
+        if (a===colors.length-1) {
+            a=0
         }
-        
+        h1.style.color = colors[a]
+        a++
+        setTimeout(ref,1000)
+    }
+    
     </script>
 </body>
 </html>
