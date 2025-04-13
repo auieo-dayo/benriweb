@@ -2,17 +2,19 @@ let mydomain = get3LD(location.href),redirectchkpage="redirect.html?url="
 console.log(mydomain)
 
     document.addEventListener("DOMContentLoaded",ev=>{
-        document.querySelectorAll("a").forEach(function(el) {
-            if (!el.href || get3LD(el.href) === mydomain || get3LD(el.href) === "path") {return}
-            el.href = redirectchkpage+el.href
-        });
-        document.querySelectorAll("button").forEach(function(el) {
-            if (!el.dataset.url || get3LD(el.href) === mydomain || get3LD(el.dataset.url) === "path") {return}
-                el.dataset.url = redirectchkpage+el.dataset.url
-                el.addEventListener("click",e =>{openlinkbtn(e)})
-        });
+      redirectchk()
     })
-
+function redirectchk() {
+  document.querySelectorAll("a").forEach(function(el) {
+    if (!el.href || get3LD(el.href) === mydomain || get3LD(el.href) === "path") {return}
+    el.href = redirectchkpage+el.href
+});
+document.querySelectorAll("button").forEach(function(el) {
+    if (!el.dataset.url || get3LD(el.href) === mydomain || get3LD(el.dataset.url) === "path") {return}
+        el.dataset.url = redirectchkpage+el.dataset.url
+        el.addEventListener("click",e =>{openlinkbtn(e)})
+});
+}
 
 function get3LD(input) {
     try {
